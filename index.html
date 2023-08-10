@@ -19,9 +19,31 @@
     var SongId = document.getElementById("SongId");
     var returndata = document.getElementById("SongValue");
 
-    submit.addEventListener("click", () => function() {
-      var value = SongId.value
-      console.log(value)
+    function getSong(id) {
+      var url = `http://www.boomlings.com/database/getGJSongInfo.php`;
+	    var req = new XMLHttpRequest();
+      req.open('POST', url, true);
+      req.onload  = function() {
+        var jsonResponse = JSON.parse(req.responseText);
+        try {showData(jsonResponse.universeId)}
+        catch(err) {
+          alert(err.message)
+}
+        
+};
+    req.send(null);
+    };
+
+    submit.addEventListener("click", () => {
+      var str = SongId.value;
+      if (!str) {alert('Enter Valid Song Id Id');}
+        else {
+          if (!isNaN(str) && !isNaN(parseFloat(str))) {
+            get(str)
+          }else {
+            alert('Enter Valid Song Id Id');
+          }
+      }
     });
   </script>
 </body>
