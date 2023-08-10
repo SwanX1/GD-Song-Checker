@@ -4,18 +4,25 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>Place Id To Universal Id </title>
+  <title>GD Song Checker</title>
 </head>
 
 <body>
-  <input class='SongId' id = 'Pid' placeholder='Enter Song Id Here' />
+  <input class='SongId' id='Sid' placeholder='Enter Song Id Here' />
 
   <button class='Submit' id='btn'>Submit</button>
   
-  <label id = 'SongValue'>False</label>
+  <label id='SongValue'>False</label>
 
   <script>
-    
+    var submit = document.getElementById("Submit");
+    var SongId = document.getElementById("SongId");
+    var returndata = document.getElementById("SongValue");
+
+    submit.addEventListener("click", () => function() {
+      var value = SongId.value
+      console.log(value)
+    });
   </script>
 </body>
 
