@@ -21,13 +21,6 @@
 
     function getSong(id) {
       var url = `http://www.boomlings.com/database/getGJSongInfo.php`;
-	    var req = new XMLHttpRequest();
-      req.open('POST', url, true);
-      req.onload  = function() {
-        var jsonResponse = JSON.parse(req.responseText);
-        try {showData(jsonResponse.universeId)}
-        catch(err) {
-          alert(err.message)
 }
         
 };
