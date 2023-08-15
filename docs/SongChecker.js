@@ -10,10 +10,13 @@ document.getElementById("btn").addEventListener("click", () => {
           "songID": str
         };
         // Send Request
-        var xhr = new XMLHttpRequest();
-        xhr.open("POST", url, true);
-        xhr.setRequestHeader('Content-Type', 'application/json');
-        xhr.send(JSON.stringify(data));
+        fetch(url, {
+          method: "POST",
+          headers: {'Content-Type': 'application/json'}, 
+          body: JSON.stringify(data)
+        }).then(res => {
+          console.log("Request complete! response:", res);
+        });
         
       }else {
         alert('Enter Valid Song Id');
